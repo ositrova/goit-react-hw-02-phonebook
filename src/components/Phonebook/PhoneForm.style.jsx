@@ -1,8 +1,9 @@
 
 import styled from 'styled-components';
+import { Form, Field, ErrorMessage as FormikError } from 'formik';
 
 
-export const Form = styled.form`
+export const FormAdd = styled(Form)`
 display: flex;
 flex-direction: column;
 margin-left: auto;
@@ -12,7 +13,7 @@ gap: 10px;
 
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
 border: 1px solid black;
 border-radius: 7px;
 padding: 4px;
@@ -28,4 +29,8 @@ margin-right: auto;
 margin-top: 19px;
 background-color: #92bbe8;
 box-shadow: 3px 2px 2px #727171;
+`;
+
+export const ErrorMessage = styled(FormikError)`
+  color: tomato;
 `;
