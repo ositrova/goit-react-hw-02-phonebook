@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from "react";
-import {FormAdd, Input, Btn, ErrorMessage} from './PhoneForm.style'
-import { Formik } from 'formik';
-import * as yup from 'yup';
+import {FormAdd, Input, Btn} from './PhoneForm.style'
+
 
 
 export class PhoneForm extends Component{
@@ -23,25 +22,15 @@ export class PhoneForm extends Component{
         this.props.onSubmit({ ...this.state }); //передает props родителю
         this.setState({ name: '', number: '' }); //reset обнуляет input
       };
-
-      schema = yup.object().shape({
-        name: yup.string().required(),
-        number: yup.number().positive().required(),
-      });
     
     
     render() {
         const {handleChange, handleSubmit} = this;
         const {name, number} = this.state;
-        const initialValues = { name: '', number: '' };
         return (
-            <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={this.schema}
-      >
-<FormAdd onSubmit={handleSubmit}>
-    <label> Name : </label>
+           
+<FormAdd  onSubmit={handleSubmit}>
+    <label htmlFor="Name"> Name : </label>
         
     <Input
    type="text"
@@ -53,9 +42,8 @@ export class PhoneForm extends Component{
    title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
    required
 />
-<ErrorMessage name="name" component="span" />
 
-    <label> Number : </label>
+    <label htmlFor="Number"> Number : </label>
         
     <Input
   type="tel"
@@ -68,11 +56,11 @@ export class PhoneForm extends Component{
   required
   
 />
-<ErrorMessage name="number" component="span" />
+
   
     <Btn type="submit">Add contact</Btn>
 </FormAdd>
-</Formik>
+
         )
     }
 }    
