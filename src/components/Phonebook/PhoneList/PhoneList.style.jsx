@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Form = styled.ul`
+export const List = styled.ul`
 margin: 0;
 padding: 0;
 `;
 
-export const List = styled.li`
+export const Item = styled.li`
 display: flex;
 justify-content: space-between;
 

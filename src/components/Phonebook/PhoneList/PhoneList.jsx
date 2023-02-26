@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import {Form, List, Text, Btn } from './PhoneList.style';
+import {List, Item, Text, Btn } from './PhoneList.style';
 
 export const PhoneList = ({contacts, removeContact}) => {
     const elements = contacts.map(({ id, name, number }) => (
-        <List key={id}>
+        <Item key={id}>
                 <Text>{name}</Text>
                 <Text>{number}</Text>
                 <Btn type='button' onClick={() => removeContact(id)}>Delete</Btn>
-            </List>
+            </Item>
       ));
-      return <Form>{elements}</Form>;
+      return <List>{elements}</List>;
     };
         
     
